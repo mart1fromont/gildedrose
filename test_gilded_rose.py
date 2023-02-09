@@ -5,6 +5,26 @@ from gilded_rose import Item, GildedRose
 
 
 class GildedRoseTest(unittest.TestCase):
+    def test_brie(self):
+        items = [Item(name="Aged Brie", sell_in=2, quality=0)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual("Aged Brie", items[0].name)
+        self.assertEqual(1, items[0].quality)
+        self.assertEqual(1, items[0].sell_in)
+
+    def test_peremption(self):
+        items = [Item(name="Elixir of the Mongoose", sell_in=1, quality=7)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual("Elixir of the Mongoose", items[0].name)
+        self.assertEqual(6, items[0].quality)
+        self.assertEqual(0, items[0].sell_in)
+        gilded_rose.update_quality()
+        self.assertEqual("Elixir of the Mongoose", items[0].name)
+        self.assertEqual(4, items[0].quality)
+        self.assertEqual(-1, items[0].sell_in)
+
     """
     This is a test class for the Gilded Rose Kata
     """
@@ -38,6 +58,13 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
+        self.assertEqual("Elixir of the Mongoose", items[0].name)
+        self.assertEqual(6, items[0].quality)
+        self.assertEqual(0, items[0].sell_in)
+        gilded_rose.update_quality()
+        self.assertEqual(4, items[0].quality)
+
+
         self.assertEquals(23, items[0].quality)
 
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
