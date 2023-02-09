@@ -7,7 +7,6 @@ from products.AgedBrie import AgedBrie
 from products.BackstagePasses import BackstagePasses
 from products.Conjured import Conjured
 from products.Sulfuras import Sulfuras
-from utils.Item import Item
 from utils.Product import Product
 
 # Constants

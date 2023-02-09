@@ -1,7 +1,7 @@
 import abc
 from abc import ABC
 
-from utils.Item import Item
+from gilded_rose import Item
 
 
 class Product(ABC):
