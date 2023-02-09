@@ -24,7 +24,14 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals(50, items[0].quality)
 
-
+    def test_sulfuras_quality_never_changes(self):
+        """
+        Test that Sulfuras quality never changes
+        """
+        items = [Item("test_sulfuras", 0, 80)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEquals(80, items[0].quality)
 
 
 if __name__ == '__main__':
