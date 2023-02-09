@@ -13,7 +13,7 @@ class Product(ABC):
     """
 
     def __init__(self, name, sell_in, quality):
-        self.item = Item(name, sell_in, quality)
+        self.item = Item(name, sell_in, quality if quality < 50 else 50)
 
     @property
     def name(self):

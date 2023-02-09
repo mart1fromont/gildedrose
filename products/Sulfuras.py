@@ -12,6 +12,7 @@ class Sulfuras(Product, ABC):
 
     def __init__(self, sell_in):
         super().__init__("Sulfuras, Hand of Ragnaros", sell_in, self.SULFURAS_QUALITY)
+        self.item.quality = self.SULFURAS_QUALITY
 
     def update_quality(self):
         """
