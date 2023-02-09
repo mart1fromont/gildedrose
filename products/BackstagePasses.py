@@ -27,5 +27,7 @@ class BackstagePasses(Product, ABC):
             self.item.quality += self.SELL_IN_FIRST_THRESHOLD_INCREASE
         elif self.sell_in > self.SELL_IN_SECOND_THRESHOLD:
             self.item.quality += self.SELL_IN_SECOND_THRESHOLD_INCREASE
-        else:
+        elif self.sell_in > 0:
             self.item.quality += self.SELL_IN_THIRD_THRESHOLD_INCREASE
+        else:
+            self.item.quality = 0

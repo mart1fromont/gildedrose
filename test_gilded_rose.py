@@ -80,6 +80,11 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(23, items[0].quality)
 
+        items = [BackstagePasses(0, 20)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(0, items[0].quality)
+
     def test_conjured_product(self):
         """
         Test that conjured product quality decreases by 2
