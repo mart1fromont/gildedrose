@@ -9,12 +9,21 @@ class GildedRoseTest(unittest.TestCase):
     This is a test class for the Gilded Rose Kata
     """
 
+    def test_quality_cannot_be_negative(self):
+        """
+        Test that quality cannot be negative
+        """
+        items = [Item("test_product", 0, 0)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(0, items[0].quality)
+
     def test_quality_never_over_50(self):
         """
         Test that quality is never over 50
         """
         items = [Item("test_product", 0, 60)]
-        self.assertEquals(50, items[0].quality)
+        self.assertEqual(50, items[0].quality)
 
     def test_sulfuras_quality_never_changes(self):
         """
@@ -38,12 +47,12 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEquals(23, items[0].quality)
+        self.assertEqual(23, items[0].quality)
 
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEquals(0, items[0].quality)
+        self.assertEqual(0, items[0].quality)
 
 
 if __name__ == '__main__':
